@@ -6,39 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>极语言说明书</title>
-    <!-- <link rel="stylesheet" href="/static/plugins/xp.css@0.3.0/dist/98.css" -->
-    <!-- <link rel="stylesheet" href="/static/plugins/xp.css@0.3.0/dist/XP.css"> -->
-    <link rel="stylesheet" href="/static/plugins/7.css@0.12.0/dist/7.css">
+    <!-- <link rel="stylesheet" href="/static/plugins/xp.css@0.3.0/dist/98.css"
+    <link rel="stylesheet" href="/static/plugins/xp.css@0.3.0/dist/XP.css"> -->
+    <link rel="stylesheet" id="css" href="/static/plugins/xp.css@0.3.0/dist/XP.css">
     <link rel="stylesheet" href="/static/plugins/7.css@0.12.0/dist/7.scoped.css">
     <link rel="stylesheet" href="/static/plugins/xp.css@0.3.0/dist/docs.css">
     <link rel="stylesheet" href="/static/plugins/xp.css@0.3.0/dist/vs.css">
-    <style>
-        aside {
-            top: 28px;
-        }
-
-        nav a {
-            color: black;
-            cursor: default;
-            display: inline;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-    </style>
 </head>
 
 <body class="surface" ontouchstart>
-    <nav>
-        <ul role="menubar">
-            <li role="menuitem" tabindex="0"><a href="http://sec.z5x.cn" style="text-decoration: none;"
-                    target="_blank">前往官方网站</a></li>
-            <li role="menuitem" tabindex="0">Edit</li>
-            <li role="menuitem" tabindex="0">View</li>
-            <li role="menuitem" tabindex="0">Help</li>
-        </ul>
-    </nav>
     <aside>
         <ul class="tree-view">
             <li><a href="#intro">前言</a></li>
@@ -67,16 +43,16 @@
             <li><a href="#issues-contributing-etc">Issues, Contributing, etc.</a></li>
         </ul>
     </aside>
-    <!-- <div class="theme-switcher">
+    <div class="theme-switcher">
         <section class="field-row">
             <label>选择主题</label>
-            <select id="theme-switcher-select">
+            <select id="theme-switcher-select" onchange="changeCss($('#theme-switcher-select option:selected').val())">
                 <option value="/static/plugins/xp.css@0.3.0/dist/XP.css">Windows XP</option>
                 <option value="/static/plugins/xp.css@0.3.0/dist/98.css">Windows 98</option>
                 <option value="/static/plugins/7.css@0.12.0/dist/7.css">Windows 7</option>
             </select>
         </section>
-    </div> -->
+    </div>
     <main>
         <div id="intro">
             <h2>前言</h2>
@@ -97,7 +73,8 @@
                     ctx.drawImage(img, 0, 0);
                 </script>
                 <p>打开软件默认是“新建”选项，点击初级程序。进入主界面。</p>
-                <img id="img2" src="http://zx-1252114143.cos.ap-guangzhou.myqcloud.com/pic/%E4%BB%A3%E7%A0%81.PNG" alt="代码编辑界面" style="display: none;" onload="ctx2.drawImage(img2,0,0);"/>
+                <img id="img2" src="http://zx-1252114143.cos.ap-guangzhou.myqcloud.com/pic/%E4%BB%A3%E7%A0%81.PNG"
+                    alt="代码编辑界面" style="display: none;" onload="ctx2.drawImage(img2,0,0);" />
                 <canvas id="UI-Editor" width="592" height="485"></canvas>
                 <script>
                     var UIEditor = document.getElementById("UI-Editor");
@@ -105,8 +82,9 @@
                     var img2 = document.getElementById("img2");
                     ctx.drawImage(img2, 0, 0);
                 </script>
-                <p>我们知道，编写一个程序是需要很多代码的，这些代码往往要完成很多重复性工作,所以我们就要把代码分成若干个小程序段，称之为“小程序”。每一段“小程序”我们都可以在不同地方调用执行它，具体是怎么实现呢？比如我们要计算a+b=c，请看下面简单的示例：</p>
-                <div class="window active" id="example1" style="width: 200px;">
+                <p>我们知道，编写一个程序是需要很多代码的，这些代码往往要完成很多重复性工作,所以我们就要把代码分成若干个小程序段，称之为“小程序”。每一段“小程序”我们都可以在不同地方调用执行它，具体是怎么实现呢？比如我们要计算a+b=c，请看下面简单的示例：
+                </p>
+                <div class="window active" id="example1" style="width: 250px;">
                     <div class="title-bar">
                         <div class="title-bar-text">Code Editor</div>
                         <div class="title-bar-controls">
@@ -123,7 +101,7 @@
 
                 <p>然后我们接着看看参数是如何传递的：</p>
 
-                <div class="window active" id="example2" style="width: 200px;">
+                <div class="window active" id="example2" style="width: 250px;">
                     <div class="title-bar">
                         <div class="title-bar-text">Code Editor</div>
                         <div class="title-bar-controls">
@@ -138,7 +116,7 @@
                 </div>
                 <p>括号里面传递两个参数a和b，它们是变量的名字，整数代表这个变量是数字，a和b可以是－21亿到21之间的任意数字。有了这段小程序，我们就可以在其它地方调用它，写法是：加法(100,5);那么它就会计算出c＝105。可是我们需要把c这结果取出来，那么小程序需要把结果返回给调用者。
                 </p>
-                <div class="window active" id="example3" style="width: 200px;">
+                <div class="window active" id="example3" style="width: 250px;">
                     <div class="title-bar">
                         <div class="title-bar-text">Code Editor</div>
                         <div class="title-bar-controls">
@@ -151,7 +129,7 @@
                     </div>
                 </div>
                 <p>这样书写之后，我们调用时，就可以写：</p>
-                <div class="window active" id="example4" style="width: 200px;">
+                <div class="window active" id="example4" style="width: 250px;">
                     <div class="title-bar">
                         <div class="title-bar-text">Code Editor</div>
                         <div class="title-bar-controls">
@@ -163,7 +141,7 @@
                     </div>
                 </div>
                 <p>那么我们把计算结果给到d这个变量，此时d的值就是105。由此我们可以看出，申请变量就是要存放一个数据，我们可以去读写这个变量的数据。</p>
-                <div class="window active" id="example5" style="width: 200px;">
+                <div class="window active" id="example5" style="width: 250px;">
                     <div class="title-bar">
                         <div class="title-bar-text">Code Editor</div>
                         <div class="title-bar-controls">
@@ -186,6 +164,12 @@
     <script>
         // Fallback to loading jQuery from a local path if the CDN is unavailable
         (window.jQuery || document.write('<script src="/static/js/jquery-3.6.4.min.js"><\/script>'));
+    </script>
+    <script>
+        function changeCss(css) {
+            const cssLink = document.getElementById('css');
+            cssLink.href = css;
+        }
     </script>
 </body>
 
